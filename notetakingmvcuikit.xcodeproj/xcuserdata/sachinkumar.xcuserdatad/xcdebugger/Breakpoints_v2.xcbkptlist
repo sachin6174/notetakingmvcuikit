@@ -66,5 +66,93 @@
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4142886-39B3-4AAE-A907-B2A76059DA47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "notetakingmvcuikit/Controller/NoteDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "NoteDetailViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E4142886-39B3-4AAE-A907-B2A76059DA47 - 548bf2746febb2a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "notetakingmvcuikit.NoteDetailViewController.notesController.getter : Swift.Optional&lt;notetakingmvcuikit.NotesController&gt;"
+                  moduleName = "notetakingmvcuikit.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sachinkumar/Desktop/notetakingmvcuikit/notetakingmvcuikit/Controller/NoteDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "E4142886-39B3-4AAE-A907-B2A76059DA47 - 73fd6bd0a451caa5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "notetakingmvcuikit.NoteDetailViewController.notesController.setter : Swift.Optional&lt;notetakingmvcuikit.NotesController&gt;"
+                  moduleName = "notetakingmvcuikit.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sachinkumar/Desktop/notetakingmvcuikit/notetakingmvcuikit/Controller/NoteDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "E4142886-39B3-4AAE-A907-B2A76059DA47 - ad626a07141228aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "notetakingmvcuikit.NoteDetailViewController.notesController.modify : Swift.Optional&lt;notetakingmvcuikit.NotesController&gt;"
+                  moduleName = "notetakingmvcuikit.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sachinkumar/Desktop/notetakingmvcuikit/notetakingmvcuikit/Controller/NoteDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "E4142886-39B3-4AAE-A907-B2A76059DA47 - 2900f1ba2253819c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "notetakingmvcuikit.NoteDetailViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; notetakingmvcuikit.NoteDetailViewController"
+                  moduleName = "notetakingmvcuikit.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sachinkumar/Desktop/notetakingmvcuikit/notetakingmvcuikit/Controller/NoteDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26">
+               </Location>
+               <Location
+                  uuid = "E4142886-39B3-4AAE-A907-B2A76059DA47 - 8b52d6317054de45"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "notetakingmvcuikit.NoteDetailViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;notetakingmvcuikit.NoteDetailViewController&gt;"
+                  moduleName = "notetakingmvcuikit.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sachinkumar/Desktop/notetakingmvcuikit/notetakingmvcuikit/Controller/NoteDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

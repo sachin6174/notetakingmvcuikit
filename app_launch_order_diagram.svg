@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1800" viewBox="0 0 1400 1800">
+  <defs>
+    <style>
+      .title{font:700 28px -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; fill:#0b3954}
+      .section{font:600 18px -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; fill:#0b3954}
+      .boxText{font:500 14px -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; fill:#0b0b0b}
+      .box{fill:#ffffff; stroke:#4a90e2; stroke-width:2; rx:10; ry:10}
+      .muted{fill:#f7fbff}
+      .arrow{stroke:#666; stroke-width:2; marker-end:url(#arrowHead)}
+      .arrowStrong{stroke:#4a90e2; stroke-width:2.5; marker-end:url(#arrowHeadStrong)}
+    </style>
+    <marker id="arrowHead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrowHeadStrong" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a90e2"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="1800" fill="#f9fbfd"/>
+  <text x="700" y="50" text-anchor="middle" class="title">iOS App Launch Flow — notetakingmvcuikit</text>
+
+  <!-- Sections -->
+  <text x="150" y="100" class="section">Startup</text>
+  <text x="650" y="100" class="section">Welcome → Notes List</text>
+  <text x="1120" y="100" class="section">Interactions & Lifecycle</text>
+
+  <!-- Column positions and sizes -->
+  <!-- Box size: w=360, h=60; vertical gap=26 -->
+
+  <!-- Startup column (left) -->
+  <g id="startup" transform="translate(20,120)">
+    <rect class="box muted" x="0" y="0" width="360" height="60"/>
+    <text class="boxText" x="14" y="24">
+      <tspan>@main AppDelegate</tspan>
+      <tspan x="14" dy="20">Application delegate instance created</tspan>
+    </text>
+
+    <rect class="box" x="0" y="86" width="360" height="60"/>
+    <text class="boxText" x="14" y="110">
+      <tspan>AppDelegate.application(_:didFinishLaunchingWithOptions:)</tspan>
+      <tspan x="14" dy="20">First app logic entry</tspan>
+    </text>
+
+    <rect class="box" x="0" y="172" width="360" height="60"/>
+    <text class="boxText" x="14" y="196">
+      <tspan>AppDelegate.application(_:configurationForConnecting:)</tspan>
+      <tspan x="14" dy="20">Returns “Default Configuration”</tspan>
+    </text>
+
+    <rect class="box" x="0" y="258" width="360" height="60"/>
+    <text class="boxText" x="14" y="282">
+      <tspan>SceneDelegate.scene(_:willConnectTo:options:)</tspan>
+      <tspan x="14" dy="20">Main.storyboard auto-loaded (Info.plist)</tspan>
+    </text>
+
+    <rect class="box" x="0" y="344" width="360" height="60"/>
+    <text class="boxText" x="14" y="368">
+      <tspan>Main.storyboard → ViewController</tspan>
+      <tspan x="14" dy="20">Initial VC instantiated</tspan>
+    </text>
+
+    <rect class="box" x="0" y="430" width="360" height="60"/>
+    <text class="boxText" x="14" y="454">
+      <tspan>ViewController.viewDidLoad()</tspan>
+      <tspan x="14" dy="20">Setup welcome screen</tspan>
+    </text>
+
+    <rect class="box" x="0" y="516" width="360" height="60"/>
+    <text class="boxText" x="14" y="540">
+      <tspan>ViewController.viewWillAppear/DidAppear</tspan>
+    </text>
+
+    <rect class="box" x="0" y="602" width="360" height="60"/>
+    <text class="boxText" x="14" y="626">
+      <tspan>SceneDelegate.sceneDidBecomeActive(_:)</tspan>
+    </text>
+
+    <!-- Arrows -->
+    <line class="arrow" x1="180" y1="60" x2="180" y2="86"/>
+    <line class="arrow" x1="180" y1="146" x2="180" y2="172"/>
+    <line class="arrow" x1="180" y1="232" x2="180" y2="258"/>
+    <line class="arrow" x1="180" y1="318" x2="180" y2="344"/>
+    <line class="arrow" x1="180" y1="404" x2="180" y2="430"/>
+    <line class="arrow" x1="180" y1="490" x2="180" y2="516"/>
+    <line class="arrow" x1="180" y1="576" x2="180" y2="602"/>
+  </g>
+
+  <!-- Welcome → Notes List column (middle) -->
+  <g id="notesList" transform="translate(520,120)">
+    <rect class="box muted" x="0" y="0" width="360" height="60"/>
+    <text class="boxText" x="14" y="24">
+      <tspan>User taps “Get Started”</tspan>
+      <tspan x="14" dy="20">getStartedTapped(_:)</tspan>
+    </text>
+
+    <rect class="box" x="0" y="86" width="360" height="60"/>
+    <text class="boxText" x="14" y="110">
+      <tspan>setupMVCArchitecture()</tspan>
+      <tspan x="14" dy="20">Instantiate NotesListVC + present in UINavigationController</tspan>
+    </text>
+
+    <rect class="box" x="0" y="192" width="360" height="60"/>
+    <text class="boxText" x="14" y="216">
+      <tspan>NotesListViewController.viewDidLoad()</tspan>
+      <tspan x="14" dy="20">setupView() • setupController()</tspan>
+    </text>
+
+    <rect class="box" x="0" y="278" width="360" height="60"/>
+    <text class="boxText" x="14" y="302">
+      <tspan>NotesController.init()</tspan>
+      <tspan x="14" dy="20">CoreDataManager.shared accessed</tspan>
+    </text>
+
+    <rect class="box" x="0" y="364" width="360" height="60"/>
+    <text class="boxText" x="14" y="388">
+      <tspan>CoreDataManager init</tspan>
+      <tspan x="14" dy="20">loadPersistentStores • seed sample if empty</tspan>
+    </text>
+
+    <rect class="box" x="0" y="450" width="360" height="60"/>
+    <text class="boxText" x="14" y="474">
+      <tspan>loadNotes()</tspan>
+      <tspan x="14" dy="20">getAllNotes() → tableView.reloadData()</tspan>
+    </text>
+
+    <!-- Arrows -->
+    <line class="arrowStrong" x1="180" y1="60" x2="180" y2="86"/>
+    <line class="arrow" x1="180" y1="146" x2="180" y2="192"/>
+    <line class="arrow" x1="180" y1="252" x2="180" y2="278"/>
+    <line class="arrow" x1="180" y1="338" x2="180" y2="364"/>
+    <line class="arrow" x1="180" y1="424" x2="180" y2="450"/>
+  </g>
+
+  <!-- Interactions & Lifecycle (right) -->
+  <g id="interactions" transform="translate(980,120)">
+    <rect class="box muted" x="0" y="0" width="360" height="60"/>
+    <text class="boxText" x="14" y="24">
+      <tspan>Add (+)</tspan>
+      <tspan x="14" dy="20">userWantsToCreateNote()</tspan>
+    </text>
+
+    <rect class="box" x="0" y="86" width="360" height="60"/>
+    <text class="boxText" x="14" y="110">
+      <tspan>Push NoteDetailViewController</tspan>
+      <tspan x="14" dy="20">Storyboard ID: NoteDetailViewController</tspan>
+    </text>
+
+    <rect class="box" x="0" y="172" width="360" height="60"/>
+    <text class="boxText" x="14" y="196">
+      <tspan>NoteDetailVC.viewDidLoad()</tspan>
+      <tspan x="14" dy="20">setupView() • populateFields()</tspan>
+    </text>
+
+    <rect class="box" x="0" y="258" width="360" height="60"/>
+    <text class="boxText" x="14" y="282">
+      <tspan>Save</tspan>
+      <tspan x="14" dy="20">validate → create/update via Controller</tspan>
+    </text>
+
+    <rect class="box" x="0" y="344" width="360" height="60"/>
+    <text class="boxText" x="14" y="368">
+      <tspan>CoreDataManager.saveContext()</tspan>
+      <tspan x="14" dy="20">then refreshNotesList()</tspan>
+    </text>
+
+    <rect class="box" x="0" y="430" width="360" height="60"/>
+    <text class="boxText" x="14" y="454">
+      <tspan>List reload</tspan>
+      <tspan x="14" dy="20">getAllNotes() → table reload</tspan>
+    </text>
+
+    <rect class="box" x="0" y="546" width="360" height="60"/>
+    <text class="boxText" x="14" y="570">
+      <tspan>Delete</tspan>
+      <tspan x="14" dy="20">userWantsToDelete → deleteNote → refresh</tspan>
+    </text>
+
+    <rect class="box" x="0" y="662" width="360" height="60"/>
+    <text class="boxText" x="14" y="686">
+      <tspan>Background</tspan>
+      <tspan x="14" dy="20">sceneDidEnterBackground → saveContext</tspan>
+    </text>
+
+    <rect class="box" x="0" y="748" width="360" height="60"/>
+    <text class="boxText" x="14" y="772">
+      <tspan>Terminate</tspan>
+      <tspan x="14" dy="20">applicationWillTerminate → saveContext</tspan>
+    </text>
+
+    <!-- Arrows -->
+    <line class="arrow" x1="180" y1="60" x2="180" y2="86"/>
+    <line class="arrow" x1="180" y1="146" x2="180" y2="172"/>
+    <line class="arrow" x1="180" y1="232" x2="180" y2="258"/>
+    <line class="arrow" x1="180" y1="318" x2="180" y2="344"/>
+    <line class="arrow" x1="180" y1="404" x2="180" y2="430"/>
+    <line class="arrow" x1="180" y1="606" x2="180" y2="662"/>
+    <line class="arrow" x1="180" y1="722" x2="180" y2="748"/>
+  </g>
+
+  <!-- Cross reference arrows (optional visual links) -->
+  <line class="arrow" x1="380" y1="200" x2="520" y2="140"/>
+  <line class="arrow" x1="880" y1="600" x2="980" y2="460"/>
+
+</svg>
+
