@@ -74,7 +74,7 @@ import Foundation
  
  👀 VIEW LAYER (What the user sees):
  -----------------------------------
- Files: NotesListViewController.swift, NoteDetailViewController.swift
+ Files: Main.storyboard, LaunchScreen.storyboard, DesignSystem.swift, Custom UI components
  
  Responsibilities:
  • Display data to users
@@ -101,7 +101,7 @@ import Foundation
  
  🎮 CONTROLLER LAYER (The brain of the app):
  -------------------------------------------
- Files: NotesController.swift
+ Files: NotesController.swift, NotesListViewController.swift, NoteDetailViewController.swift
  
  Responsibilities:
  • Coordinate between Model and View
@@ -328,12 +328,14 @@ import Foundation
  └── NoteDataManager.swift (Data operations)
  
  View Layer:
- ├── NotesListViewController.swift (List display)
- ├── NoteDetailViewController.swift (Detail display)
- └── Main.storyboard (UI layout)
+ ├── Main.storyboard (UI layout)
+ ├── LaunchScreen.storyboard (Launch screen UI)
+ └── DesignSystem.swift (Visual styling)
  
  Controller Layer:
- └── NotesController.swift (Business logic coordinator)
+ ├── NotesController.swift (Business logic coordinator)
+ ├── NotesListViewController.swift (List view controller)
+ └── NoteDetailViewController.swift (Detail view controller)
  
  Support:
  ├── ViewController.swift (App entry point)
