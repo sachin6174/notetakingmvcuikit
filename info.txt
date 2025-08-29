@@ -1,0 +1,29 @@
+There are two storyboard files for different purposes:
+
+  📱 Main.storyboard
+
+  - Purpose: Contains the main app interface and user flows
+  - Usage: Where you design your app's actual screens and navigation
+  - Content: View controllers, segues, UI elements that users interact with
+  - When shown: After the app launches and loads completely
+
+  🚀 LaunchScreen.storyboard
+
+  - Purpose: Shows immediately when app starts (splash screen)
+  - Usage: Displays while the app is loading in the background
+  - Content: Simple, static elements (logo, loading indicator, app name)
+  - When shown: The very first thing users see when tapping your app icon
+
+  🔄 Why Two Separate Files?
+
+  1. Performance: LaunchScreen loads instantly while Main.storyboard loads the full app
+  2. Apple Requirement: iOS requires a launch screen for App Store submission
+  3. User Experience: Provides immediate visual feedback while app initializes
+  4. Different Constraints: Launch screens have specific Apple guidelines and limitations
+
+  📊 Typical Flow:
+
+  User taps app icon → LaunchScreen.storyboard (instant) → App loads → Main.storyboard (main UI)
+
+  This is standard iOS architecture - every iOS app has both! The launch screen creates a seamless
+  transition from icon tap to app ready.
