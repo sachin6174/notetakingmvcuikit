@@ -1,0 +1,80 @@
+name: SonarQube PR Analysis
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    types: [opened, synchronize, reopened]
+
+jobs:
+  sonarqube-pr:
+    name: SonarQube PR Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Disable shallow clone for better analysis
+          
+      - name: Setup SonarQube Scanner
+        uses: warchant/setup-sonar-scanner@v8
+        with:
+          version: 5.0.1.3006
+          
+      - name: Get PR info
+        id: pr-info
+        run: |
+          echo "PR_NUMBER=${{ github.event.number }}" >> $GITHUB_ENV
+          echo "PR_BRANCH=${{ github.head_ref }}" >> $GITHUB_ENV
+          echo "BASE_BRANCH=${{ github.base_ref }}" >> $GITHUB_ENV
+          
+      - name: SonarQube PR Analysis
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=notetakingmvcuikit \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL || 'http://localhost:9000' }} \
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+            -Dsonar.pullrequest.key=${{ env.PR_NUMBER }} \
+            -Dsonar.pullrequest.branch=${{ env.PR_BRANCH }} \
+            -Dsonar.pullrequest.base=${{ env.BASE_BRANCH }} \
+            -Dsonar.pullrequest.github.repository=${{ github.repository }} \
+            -Dsonar.scm.provider=git \
+            -Dsonar.qualitygate.wait=true \
+            -Dsonar.analysis.mode=preview
+            
+      - name: Comment PR with SonarQube Results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const sonarUrl = process.env.SONAR_HOST_URL || 'http://localhost:9000';
+            const projectKey = 'notetakingmvcuikit';
+            const prNumber = context.payload.pull_request.number;
+            
+            const comment = `## 🔍 SonarQube Analysis Results
+            
+            **Project:** ${projectKey}
+            **PR #${prNumber}** - Analyzing code smells in new code only
+            
+            📊 [View detailed results in SonarQube](${sonarUrl}/dashboard?id=${projectKey}&pullRequest=${prNumber})
+            
+            This analysis focuses on:
+            - 🐛 New bugs introduced
+            - 🔒 New security vulnerabilities  
+            - 💨 Code smells in changed code
+            - 📊 Coverage on new code
+            - 🔄 Duplications in new code
+            
+            *Analysis completed by SonarQube CI/CD*`;
+            
+            github.rest.issues.createComment({
+              issue_number: prNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
